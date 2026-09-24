@@ -1,0 +1,9 @@
+.vscode/
+build/
+*.o
+*.d01
+*.elf
+*.map
+*.sav
+src/save_blob.c
+__pycache__/

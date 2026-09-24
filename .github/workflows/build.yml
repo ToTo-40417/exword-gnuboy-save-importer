@@ -1,0 +1,34 @@
+name: Build check
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build with synthetic save data
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install devkitSH4
+        run: |
+          cd ..
+          curl -sSfL https://github.com/MaxSignal/buildscripts/releases/download/Linux/devkitPro.tar.gz | tar -zxf -
+
+      - name: Create non-copyrighted test payload
+        run: dd if=/dev/zero of=/tmp/gnuboy-ci.sav bs=32768 count=1
+
+      - name: Build
+        run: |
+          DEVKITPRO="$GITHUB_WORKSPACE/../devkitPro" \
+          DEVKITSH4="$GITHUB_WORKSPACE/../devkitPro/devkitSH4" \
+          PATH="$GITHUB_WORKSPACE/../devkitPro/tools/bin:$GITHUB_WORKSPACE/../devkitPro/devkitSH4/bin:$PATH" \
+          make SAVE_FILE=/tmp/gnuboy-ci.sav SAVE_TARGET=test.sav
+
+      - name: Verify private input is not packaged
+        run: |
+          test ! -e build/ja/SAVWR/gnuboy-ci.sav
+          test -e build/ja/SAVWR/savimp.d01
