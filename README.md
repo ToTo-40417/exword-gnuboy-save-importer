@@ -22,6 +22,8 @@ make SAVE_FILE=/path/to/game.sav SAVE_TARGET=game.sav SAVE_DRIVE=drv0
 
 GPL-2.0。ROM、save、CASIO firmware、端末認証情報は配布物に含みません。
 
+ビルドには[`brain-hackers/exword-template`](https://github.com/brain-hackers/exword-template)、[`libdataplus`](https://github.com/brijohn/libdataplus)、devkitSH4を使用します。依存物は各上流repoから直接取得してください。関連プロジェクトは[`EXLLM`](https://github.com/ToTo-40417/exllm)、[`exllm-exword`](https://github.com/ToTo-40417/exllm-exword)、[`exword-hardware-dump`](https://github.com/ToTo-40417/exword-hardware-dump)です。
+
 ## English
 
 Gnuboy Save Importer restores a PC-side Game Boy save to Gnuboy on a CASIO EX-word. It embeds the save into a personal D01, then backs up the existing file, writes the payload, reads it back, and verifies every byte on-device.
@@ -35,4 +37,4 @@ Gnuboy Save Importer restores a PC-side Game Boy save to Gnuboy on a CASIO EX-wo
 
 Use only save data you legally obtained yourself. Never commit the generated personal payload or D01. Do not remove power or disconnect USB during a write.
 
-GPL-2.0. ROMs, save files, CASIO firmware, and device authentication data are not distributed.
+GPL-2.0. ROMs, save files, CASIO firmware, and device authentication data are not distributed. Obtain [`exword-template`](https://github.com/brain-hackers/exword-template), [`libdataplus`](https://github.com/brijohn/libdataplus), and devkitSH4 from their upstream sources. Related projects: [`EXLLM`](https://github.com/ToTo-40417/exllm), [`exllm-exword`](https://github.com/ToTo-40417/exllm-exword), and [`exword-hardware-dump`](https://github.com/ToTo-40417/exword-hardware-dump).
