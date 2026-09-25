@@ -4,6 +4,10 @@
 
 PC上のGame Boyセーブデータを、CASIO EX-word版Gnuboyの保存場所へ安全に戻すためのhomebrewツールです。セーブデータを個人用D01へ埋め込み、本体上でバックアップ、書込み、全バイト再読込検証を行います。
 
+## 対応環境
+
+[`exword-template`](https://github.com/brain-hackers/exword-template)とlibexwordの対応範囲から、DATAPLUS 5 / 6 / 7を理論上の対象としています。実機でGnuboyのセーブデータ書込みと再読込検証を確認したのはXD-B4800（DATAPLUS 6）のみです。他機種での動作は保証せず、DATAPLUS 5 / 7およびそれ以外の世代は実機未確認です。Gnuboy本体の導入と保存先の構成が必要です。
+
 - APPID: `SAVWR`
 - 書込み前に本体キーで確認
 - 既存saveを`.bak`へ退避
@@ -27,6 +31,10 @@ GPL-2.0。ROM、save、CASIO firmware、端末認証情報は配布物に含み�
 ## English
 
 Gnuboy Save Importer restores a PC-side Game Boy save to Gnuboy on a CASIO EX-word. It embeds the save into a personal D01, then backs up the existing file, writes the payload, reads it back, and verifies every byte on-device.
+
+### Compatibility
+
+Based on the supported scope of [`exword-template`](https://github.com/brain-hackers/exword-template) and the libexword installation path, DATAPLUS 5, 6, and 7 are theoretical targets. Gnuboy save writing and readback verification have been tested only on an XD-B4800 (DATAPLUS 6). Other models are not guaranteed; DATAPLUS 5, DATAPLUS 7, and all other generations remain untested on physical hardware. A working Gnuboy installation with the expected save-location layout is required.
 
 - APPID: `SAVWR`
 - Requires an explicit key confirmation before writing
